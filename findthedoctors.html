@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WebMD</title>
+
+<style>
+
+
+body {
+margin: 0;
+font-family: Arial;
+background-color: #f0f8ff;
+color: #003366;
+}
+
+button {
+background-color: #243447;
+color: white;
+gap: 20px;
+border-radius: 25px;
+padding: 10px;
+align-item: center;transition: all 0.3s ease;
+
+}
+
+.button :hover {
+background-color: #1D4ED8;
+transform: translateY(-5px);
+}
+
+.header {
+
+background-color: #163D73;
+padding: 20px;
+color: white;
+}
+
+.nav{
+background-color: #243447;
+padding: 20px;
+text-align: right;
+}
+
+.nav a {
+text-decoration: none;
+margin-left: 60px;
+color: #444;
+padding: 5px;
+font-weight: bold;
+
+}
+
+.nav a:hover {
+background-color: white;
+
+}  
+
+.main {
+display: flex;
+padding; 20px;
+}
+
+.img {
+display: flex;
+gap: 200px;
+height: 80px;
+align-item: center;
+
+}
+
+.article {
+margin-left: 25px;
+padding: 10px;
+text-align: ;
+}
+
+.cards {
+display: flex;
+justify-content: space-between;
+box-shadow: 0px 4px 8px grey;
+}
+
+.card {
+border: 1px solid #cccccc;
+padding: 15px;
+margin: 10px;
+width: 220px;
+background-color: #F8FAFC;
+border-radius: 10px;
+transition: 0.3s;
+}
+
+.card:hover {
+background-color: #E0F2FE;
+transform: translateY(-5px);
+
+}
+
+.footer {
+background-color: black;
+color: white;
+padding: 20px;
+text-align: center;
+}
+
+.search-area {
+display: flex;
+padding: 20px;
+margin: 1px;
+box-shadow: 0px 4px 8px #243447;
+align-item: center;
+justify-content: center;
+
+}
+
+.search-area input {
+margin-right: 10px;
+padding: 20px;
+border-radius: 25px;
+
+
+}
+
+.search-area input: first-child {
+border-radius: 10px 0 0 10px;
+} 
+
+.search-area button {
+padding: 15px 25px;
+border-radius: 0 10px 10px 0;
+
+}
+
+.hero {
+background-color: #1e3a8a;
+background-image:url("pic.png");
+height: 600px;
+background-size: cover;
+background-position: center;
+color: #243447;
+padding: 40px;
+text-align: center;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+gap: 10px;
+}
+
+.herotwo {
+
+background-image:url("Hospital.png");
+height: 600px;
+background-size: cover;
+background-position: center;
+color: white;
+padding: 40px;
+text-align: center;
+
+}
+
+.herothree {
+background-image:url("Grp.png");
+height: 600px;
+background-size: cover;
+background-position: center;
+color: white;
+padding: 40px;
+text-align: center;
+
+}
+
+.herofour {
+background-image:url("bottom.png");
+height: 400px;
+background-size: cover;
+background-position: center;
+color: white;
+padding: 40px;
+text-align: center;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>HEALTH CENTER</h1>
+</div>
+
+<div class="nav">
+<a href="#">Find Providers by speciality</a>
+<a href="#">Find a Facility</a>
+<a href="#">LIST YOUR PRACTICE</a>
+<a href="#">Log In</a>
+</div>
+
+<div class="hero">
+<p>8 million+ Physician Ratings & Reviews</p>
+<h1>Find Doctors Near You</p>
+<p>Search for Doctors, Hospitals and Clinics</p>
+
+<div class="search-area">
+<input type="text" placeholder="search doctors">
+<input type="text" placeholder="Location">
+<button onclick=alert('hello')>search</button>
+</div>
+
+
+<div class="button">
+<button>Cardiologist</button>
+<button>Denamotologists who treat children</button>
+<button>Female OBGYNs</button>
+<button>Neurologists who take UnitedHealthcare</button>
+</div>
+</div>
+
+
+<div class="main">
+
+<div class="article">
+<h2>Choose the HealthCare that is right for</h2>
+<p>Profiles for 3 million+ physicians</p>
+<p>Book appointments online including Video Visit and Chat Now options</p>
+<p>Find award winning hospitals by specialty</p>
+</div>
+</div>
+
+<h4>Popular specialities</h4>
+<div class="img">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/PrimaryCare.svg" width="80">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/Dentist.svg">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/Obgyn.svg">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/Dermatologist.svg">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/Psychiatrist.svg">
+<img src="https://img.webmd.com/vim/live/webmd/consumer_assets/site_images/physician_directory/images/homepage/EyeDoc.svg">
+</div>
+
+<div>
+<h5 style= color: "lightblue">Top Doctors Near</h5>
+<p>Nansana, C</p>
+</div>
+
+<div class="button">
+<button>Find Your Doctor</button>
+</div>
+
+<div class="herotwo">
+<div style= text-align:"right">
+<h6>WedMD Choice Awards</h6>
+<h7>Power to the Patients</h7>
+<p>You need information that you can trust when seeking care. The WebMD Choice Awards is the only hospital recognition program based on the opinion of patients and health care providers. Because we believe when patients have a voice, everybody wins.</p>
+</div>
+</div>
+
+<h8>BY SPECIALITY</h8>
+<div class="grid">
+<div>Chiropractor</div>
+<div>Surgery</div>
+<div>Obstetrics & Gynecology</div>
+<div>Optometry</div>
+<div>Neurology</div>
+<div>Bariatric Surgery</div>
+<div>Integrative Medicine</div>
+<div>Osteopathic Medicine</div>
+<div>Radiation Oncology</div>
+<div>Rheumatology</div>
+<div>Hematology</div>
+<div>Endocrinology, Diabetes & Metabolism</div>
+<div>Plastic Surgery</div>
+<div>Orthodontics</div>
+<div>Sports Medicine</div>
+<div>Pulmonology</div>
+<div>Otolaryngology-Head & Neck Surgery</div>
+<div>Urology</div>
+<div>Pain Medicine</div>
+<div>Dermatology</div>
+<div>Podiatry</div>
+<div>Gastroenterology</div>
+<div>Ophthalmology</div>
+<div>Oncology</div>
+<div>Critical Care Medicine</div>
+<div>Orthopedic Surgery</div>
+<div>Cardiovascular Disease</div>
+<div>Neurology</div>
+<div>Optometry</div>
+<div>Obstetrics & Gynecology</div>
+<div>Integrative Medicine</div>
+<div>Osteopathic Medicine</div>
+<div>Rheumatology</div>
+<div>Pediatrics</div>
+<div>Dentistry</div>
+<div>Other Spec</div>
+</div>
+
+
+<div>
+<h8 style= text-align:"center">Healthcare specialists for everyone everywhere</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>EXERCISE TIPS</p>
+<p>*Always stay hydrated</p>
+<p>*Know your body's limits</p>
+</div>
+
+<div class="card">
+<h3>FUN FACTS</p>
+<p>*Blink for two minutes rapidly....</p>
+<p>You'll fall asleep</p>
+</div>
+
+
+</div>
+
+<div class="herothree">
+<p>8 million+ Physician Ratings & Reviews</p>
+<h1>Find Doctors Near You</p>
+<p>Search for Doctors, Hospitals and Clinics</p>
+
+<div class="search-area">
+<input type="text" placeholder="search doctors">
+<input type="text" placeholder="Location">
+<button onclick=alert('hello')>search</button>
+</div>
+
+
+<div class="button">
+<button>Cardiologist</button>
+<button>Denamotologists who treat children</button>
+<button>Female OBGYNs</button>
+<button>Neurologists who take UnitedHealthcare</button>
+</div>
+
+
+</div>
+
+<div class="herofour">
+</div>
+
+<div class="footer">
+Copyright 2026
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
