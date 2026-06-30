@@ -205,8 +205,7 @@ nav ul li a:hover{
 .topic-image{width:100%;max-height:300px;object-fit:cover;border-radius:12px;margin:15px 0 25px;}
     
 
-    /* ----- FOOTER with Gradient ----- */
-    footer {
+ footer {
       background: linear-gradient(135deg, #004080, #002b5e);
       color: white;
       padding: 40px 0 20px;
@@ -242,9 +241,11 @@ nav ul li a:hover{
       transform: translateY(-4px);
     }
 
-
-
-
+    /* ----- RESPONSIVE TWEAKS ----- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero { padding: 50px 0; }
+    }
 
 
 /* MOBILE */
