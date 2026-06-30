@@ -203,63 +203,47 @@
             filter: brightness(0) invert(1);
         }
 
-        footer {
-            background: #0a2f87;
-            color: white;
-            padding: 40px 30px;
-            margin-top: 60px;
-            font-family: Arial, sans-serif;
-        }
+     footer {
+      background: linear-gradient(135deg, #004080, #002b5e);
+      color: white;
+      padding: 40px 0 20px;
+    }
 
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 30px;
-        }
+    footer a {
+      color: #88c8f0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-        .footer-section h3 {
-            font-size: 16px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
+    footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
 
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .footer-social .btn {
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
+    .footer-social .btn:hover {
+      background: white;
+      color: var(--primary-blue);
+      transform: translateY(-4px);
+    }
 
-        .footer-section a {
-            color: #d0d0d0;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #d0d0d0;
-        }
-
-        .footer-bottom img {
-            vertical-align: middle;
-            margin-right: 8px;
-            height: 20px;
-            filter: brightness(0) invert(1);
-        }
+    /* ----- RESPONSIVE TWEAKS ----- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero { padding: 50px 0; }
+    }
     </style>
 
 </head>
