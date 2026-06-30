@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js home-page class-bg-ghost" style="scrollbar-gutter: stable;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>group 2 care for you</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8fb;
+      color: #222;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077b6;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.15;
+      max-height: 200px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-box {
+      margin-top: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-box input {
+      width: 320px;
+      max-width: 80%;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-box button {
+      padding: 14px 22px;
+      border: none;
+      background: #023e8a;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      padding: 50px 8%;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .featured-section {
+      padding: 50px 8%;
+      background: white;
+    }
+
+    .featured-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #0077b6;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .featured-item {
+      background: #f5f8fb;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .featured-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .featured-item .content {
+      padding: 20px;
+    }
+
+    .featured-item h3 {
+      color: #0077b6;
+      margin-top: 0;
+    }
+
+    .testimonial {
+      padding: 40px 8%;
+      background: #e9f2fa;
+      text-align: center;
+    }
+
+    .testimonial img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 3px solid #0077b6;
+    }
+
+    .testimonial blockquote {
+      font-style: italic;
+      font-size: 20px;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #023e8a;
+      color: white;
+    }
+
+    footer img {
+      vertical-align: middle;
+      margin-right: 10px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Logo Image (Image #1) -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="https://img.icons8.com/color/96/000000/health-book.png" alt="HealthGuide Logo" />
+      group2 care for you
+    </div>
+
+    <nav>
+      <a href="#">Conditions</a>
+      <a href="#">Drugs</a>
+      <a href="#">Wellness</a>
+      <a href="#">Find a Doctor</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Background Decorative Image (Image #2) -->
+  <section class="hero">
+    <img 
+      src="https://img.icons8.com/fluency/96/000000/stethoscope.png" 
+      alt="Stethoscope icon" 
+      class="hero-image"
+    />
+    <h1>Health information you can understand</h1>
+    <p>Search symptoms, conditions, medications, and wellness topics.</p>
+
+    <form class="search-box">
+      <input type="text" placeholder="Search health topics..." />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Featured Section (Image #3 - Lifestyle/Wellness Image) -->
+  <section class="featured-section">
+    <h2>🌿 Featured Health Topics</h2>
+    <div class="featured-grid">
+      <div class="featured-item">
+        <img 
+          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop" 
+          alt="Yoga and meditation for wellness"
+        />
+        <div class="content">
+          <h3>Mindfulness & Mental Health</h3>
+          <p>Discover techniques to reduce stress, improve sleep, and boost your overall well-being.</p>
+        </div>
+      </div>
+      <div class="featured-item">
+        <img 
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" 
+          alt="Healthy eating and nutrition"
+        />
+        <div class="content">
+          <h3>Nutrition for Every Body</h3>
+          <p>Learn about balanced diets, superfoods, and how to build healthy eating habits that last.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Grid with Card Images (Image #4 & #5 added to cards) -->
+  <main class="content-grid">
+    <article class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&h=200&fit=crop" 
+        alt="Medical heart rate monitor"
+      />
+      <h2>Common Conditions</h2>
+      <p>Learn about allergies, diabetes, heart health, anxiety, and more.</p>
+    </article>
+
+    <article class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=200&fit=crop" 
+        alt="Prescription pills and medication"
+      />
+      <h2>Medication Guide</h2>
+      <p>Find basic information about prescription and over-the-counter drugs.</p>
+    </article>
+
+    <article class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1525373698358-041e3a460346?w=400&h=200&fit=crop" 
+        alt="Person jogging and healthy lifestyle"
+      />
+      <h2>Healthy Living</h2>
+      <p>Explore nutrition, fitness, sleep, mental health, and prevention tips.</p>
+    </article>
+  </main>
+
+  <!-- Testimonial Section with Profile Image -->
+  <section class="testimonial">
+    <img 
+      src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=160&h=160&fit=crop&crop=face" 
+      alt="Doctor testimonial"
+    />
+    <blockquote>
+      "HealthGuide has been my go-to resource for understanding complex medical topics. The information is clear, reliable, and easy to digest."
+    </blockquote>
+    <p style="font-weight: bold; color: #0077b6;">— Dr. duncan of group 2 </p>
+  </section>
+
+  <footer>
+    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png" alt="Heart icon" />
+    <span>&copy; 2026 HealthGuide. Educational information only.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
