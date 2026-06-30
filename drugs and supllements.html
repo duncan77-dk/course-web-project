@@ -196,54 +196,70 @@
             border: 1px solid #ccc;
         }
 
-        footer img {
+     footer img {
             vertical-align: middle;
             margin-right: 10px;
             height: 24px;
             filter: brightness(0) invert(1);
         }
 
-     footer {
-      background: linear-gradient(135deg, #004080, #002b5e);
-      color: white;
-      padding: 40px 0 20px;
-    }
+        footer {
+            background: #0a2f87;
+            color: white;
+            padding: 40px 30px;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+        }
 
-    footer a {
-      color: #88c8f0;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
 
-    footer a:hover {
-      color: white;
-      text-decoration: underline;
-    }
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
 
-    .footer-social .btn {
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .footer-social .btn:hover {
-      background: white;
-      color: var(--primary-blue);
-      transform: translateY(-4px);
-    }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
 
-    /* ----- RESPONSIVE TWEAKS ----- */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero { padding: 50px 0; }
-    }
+        .footer-section a {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #d0d0d0;
+        }
+
+        .footer-bottom img {
+            vertical-align: middle;
+            margin-right: 8px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
     </style>
 
 </head>
@@ -333,69 +349,52 @@
 
 </div>
 
-<footer>
-  <div class="container">
-    <div class="row g-4">
-      
-      <!-- Column 1: About -->
-      <div class="col-md-4">
-        <h5 class="fw-bold"><i class="bi bi-heart-pulse-fill me-2"></i>Group2 Care</h5>
-        <p class="text-light-emphasis">Your trusted source for educational health information. Always consult your doctor for medical advice.</p>
-        <div class="footer-social mt-3">
-          <a href="#" class="btn"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="btn"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="btn"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="btn"><i class="bi bi-youtube"></i></a>
+footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="drug and supplements.html">Drug Directory</a></li>
+                <li><a href="conditions.html">Conditions</a></li>
+                <li><a href="well being prototype.html">Wellbeing</a></li>
+                <li><a href="findthedoctors.html">Find a Doctor</a></li>
+            </ul>
         </div>
-      </div>
-      
-      <!-- Column 2: Quick Links -->
-      <div class="col-md-2">
-        <h6 class="fw-bold">Quick Links</h6>
-        <ul class="list-unstyled">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      
-      <!-- Column 3: we are supposed to link this to all others work Resources and put drop downs  -->
-      <div class="col-md-3">
-        <h6 class="fw-bold">Resources</h6>
-        <ul class="list-unstyled">
-          <li><a href="#">home</a></li>
-          <li><a href="#">conditions </a></li>
-          <li><a href="#">de</a></li>
-          <li><a href="#">Symptom Checker</a></li>
-          <li><a href="#">Symptom Checker</a></li>
-          <li><a href="#">Symptom Checker</a></li>
-        </ul>
-      </div>
-      
-      <!-- Column 4: Contact -->
-      <div class="col-md-3">
-        <h6 class="fw-bold">Get in Touch</h6>
-        <ul class="list-unstyled">
-          <li><i class="bi bi-envelope me-2"></i><a href="mailto:info@group2care.com">info@group2care.com</a></li>
-          <li><i class="bi bi-telephone me-2"></i><a href="tel:+256750049022">+256 750049022</a></li>
-          <li><i class="bi bi-clock me-2"></i>24/7 Health Support</li>
-        </ul>
-      </div>
-      
-    </div>
-    
-    <!-- Bottom Bar -->
-    <hr class="border-light border-opacity-25 my-4" />
-    <div class="text-center text-light-emphasis small">
-      <i class="bi bi-hearts me-2 text-danger"></i>
-      &copy; 2026 Group2 Care For You. .
-      <span class="d-block d-sm-inline mt-2 mt-sm-0">
-        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Privacy Policy</a>
-        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Terms of Use but as of group two terms</a>
-      </span>
-    </div>
-  </div>
-</footer>
 
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Health News</a></li>
+                <li><a href="#">Wellness Blogs</a></li>
+                <li><a href="#">Medical Podcasts</a></li>
+                <li><a href="#">Health Tips</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Support</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/hearts.png" alt="Heart icon" />
+        <span>&copy; 2026 HealthGuide. Educational information only.</span>
+    </div>
+</footer>
 </body>
