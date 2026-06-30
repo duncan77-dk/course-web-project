@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Information Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+         {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+logo-icon {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.logo-text {
+    color: #2c3e50;
+}
+
+.highlight {
+    color: #2a7de1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #2a7de1;
+}
+
+/* --- Newsletter Section --- */
+.newsletter-section {
+    background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.newsletter-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.newsletter-content h1 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #1a2634;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #3a4a5a;
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.newsletter-form input[type="email"]:focus {
+    border-color: #2a7de1;
+}
+
+.newsletter-form button {
+    padding: 15px 40px;
+    background-color: #2a7de1;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #1a5fb4;
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: #5a6a7a;
+    line-height: 1.5;
+}
+
+/* --- Contributors Section --- */
+.contributors-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.contributors-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #1a2634;
+    margin-bottom: 50px;
+}
+
+.contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contributor-card {
+    background-color: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contributor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contributor-avatar {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.contributor-card h3 {
+    font-size: 1.2rem;
+    color: #1a2634;
+    margin-bottom: 5px;
+}
+
+.contributor-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.contributor-title {
+    font-size: 0.9rem;
+    color: #5a6a7a;
+}
+
+/* --- Mission Section --- */
+.mission-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.mission-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #1a2634;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.mission-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    color: #3a4a5a;
+}
+
+.mission-points {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-points li {
+    display: flex;
+    gap: 25px;
+    padding: 30px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.mission-points li:last-child {
+    border-bottom: none;
+}
+
+.point-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a7de1;
+    opacity: 0.6;
+    flex-shrink: 0;
+    min-width: 60px;
+}
+
+.mission-points h4 {
+    font-size: 1.2rem;
+    color: #1a2634;
+    margin-bottom: 5px;
+}
+
+.mission-points p {
+    color: #5a6a7a;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a2634;
+    color: #adb5bd;
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-logo .logo-text {
+    color: #ffffff;
+}
+
+.footer-logo .highlight {
+    color: #4a9eff;
+}
+
+.footer-nav a {
+    color: #adb5bd;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .newsletter-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .mission-points li {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav a {
+        margin: 0 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="mylogo.png" alt="Copilot_20260630_160629" "height: 40px; width: auto; margin-right: 10px; vertical-align: middle;">
+                <span class="logo-text">Health<span class="highlight">Hub</span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Health Topics</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Experts</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero / Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h1>Free Health Newsletters</h1>
+                    <p class="subtitle">Doctor-approved health and wellness information delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" aria-label="Email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="disclaimer">
+                        By clicking Subscribe, I agree to the HealthHub Terms & Conditions and Privacy Policy.
+                        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                        and you will an email to confirm and doctors of group2 - approved solutions 
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contributors / Experts Section -->
+        <section class="contributors-section">
+            <div class="container">
+                <h2>Patient and Expert Contributors</h2>
+                <div class="contributors-grid">
+                    <div class="contributor-card">
+                        <div class="contributor-avatar">🎗️</div>
+                        <h3>Myasthenia Gravis</h3>
+                        <p class="contributor-name">dr sean </p>
+                        <p class="contributor-title">Diagnosed since 2026</p>
+                    </div>
+                    <div class="contributor-card">
+                        <div class="contributor-avatar">🧠</div>
+                        <h3>Bipolar Disorder</h3>
+                        <p class="contributor-name">dr were</p>
+                        <p class="contributor-title">Diagnosed since 2022 since he has it</p>
+                    </div>
+                    <div class="contributor-card">
+                        <div class="contributor-avatar">🧴</div>
+                        <h3>Skin Care</h3>
+                        <p class="contributor-name">dr jason, fr fr </p>
+                        <p class="contributor-title">Double  triple board-certified dermatologist</p>
+                    </div>
+                    <div class="contributor-card">
+                        <div class="contributor-avatar">🍎</div>
+                        <h3>Digestive Health</h3>
+                        <p class="contributor-name">dr jimmy </p>
+                        <p class="contributor-title">Registered dietitian nutritionist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission / About Section -->
+        <section class="mission-section">
+            <div class="container">
+                <h2>Our Content Is Different Because We Set the Bar Higher</h2>
+                <p class="mission-intro">
+                    As a leader in digital health publishing for more than 200 years, we strive to maintain the most comprehensive and reliable source of health and medical information on the internet.
+                </p>
+                <ul class="mission-points">
+                    <li>
+                        <span class="point-number">01</span>
+                        <div>
+                            <h4>Journalistic Excellence</h4>
+                            <p>Charging our content creators to practice journalistic principles of excellence and provide objective, accurate, and balanced reporting.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="point-number">02</span>
+                        <div>
+                            <h4>Editorial Independence</h4>
+                            <p>Maintaining editorial independence and transparency into how we protect the integrity of our content.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="point-number">03</span>
+                        <div>
+                            <h4>Expert Review</h4>
+                            <p>Regularly reviewing and updating our content by working with our network of more than 100 doctors and health experts headed by the group2 members .</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer copied from the main and we are using this for please dont for get guys  -->
+    <footer>
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Column 1: About -->
+      <div class="col-md-4">
+        <h5 class="fw-bold"><i class="bi bi-heart-pulse-fill me-2"></i>Group2 Care</h5>
+        <p class="text-light-emphasis">Your trusted source for educational health information. Always consult your doctor for medical advice.</p>
+        <div class="footer-social mt-3">
+          <a href="#" class="btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="btn"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      
+      <!-- Column 2: Quick Links -->
+      <div class="col-md-2">
+        <h6 class="fw-bold">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 3: Resources -->
+      <div class="col-md-3">
+        <h6 class="fw-bold">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#">Medical Library</a></li>
+          <li><a href="#">Drug Database</a></li>
+          <li><a href="#">Doctor Directory</a></li>
+          <li><a href="#">Symptom Checker</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 4: Contact -->
+      <div class="col-md-3">
+        <h6 class="fw-bold">Get in Touch</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-envelope me-2"></i><a href="mailto:info@group2care.com">info@group2care.com</a></li>
+          <li><i class="bi bi-telephone me-2"></i><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li><i class="bi bi-clock me-2"></i>24/7 Health Support</li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <!-- Bottom Bar -->
+    <hr class="border-light border-opacity-25 my-4" />
+    <div class="text-center text-light-emphasis small">
+      <i class="bi bi-hearts me-2 text-danger"></i>
+      &copy; 2026 Group2 Care For You. Educational information only.
+      <span class="d-block d-sm-inline mt-2 mt-sm-0">
+        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Privacy Policy</a>
+        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Terms of Use</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
