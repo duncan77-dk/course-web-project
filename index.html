@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMD Login Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Footer Clone</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<style>*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:white;
+}
+
+header{
+    background:blue;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li{
+    cursor:pointer;
+}
+
+.container{
+    display:flex;
+    min-height:70vh;
+}
+
+.left-section{
+    width:50%;
+    background:lightblue;
+    padding:80px 60px;
+}
+
+.left-section h2{
+    margin-bottom:40px;
+    color:solid black;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    margin-bottom:25px;
+    gap:20px;
+}
+
+.feature span{
+    font-size:30px;
+}
+
+.feature p{
+    color:dark grey;
+}
+
+.right-section{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+    width:400px;
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid grey;
+    border-radius:4px;
+}
+
+.password-box{
+    display:flex;
+}
+
+.password-box input{
+    flex:1;
+    margin-bottom:0;
+}
+
+.password-box button{
+    width:80px;
+    border:none;
+    background:cream;
+    cursor:pointer;
+}
+
+.login-box a{
+    display:block;
+    margin:15px 0;
+    color:blue;
+    text-decoration:none;
+}
+
+.remember{
+    margin-bottom:20px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    background:blue;
+    color:white;
+    border:none;
+    border-radius:4px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.icons{
+    display:flex;
+    gap:18px;
+}
+
+.icons a{
+    color:white;
+    font-size:22px;
+    transition:0.3s;
+}
+
+.icons a:hover{
+    color:blue;
+}
+
+.app-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.app-buttons button{
+    padding:12px;
+    background:black;
+    color:white;
+    border:1px solid white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+footer{
+    background:black;
+    color:white;
+    padding:40px;
+}
+
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.footer-menu a,
+.footer-links a{
+    text-decoration:none;
+    color:white;
+}
+
+.footer-links{
+    margin-top:25px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding-bottom:20px;
+    border-bottom:1px solid blueviolet;
+}
+
+.copyright{
+    margin-top:20px;
+    color:grey;
+    font-size:14px;
+}
+
+.newsletter h2{
+    margin-bottom:10px;
+}
+
+.newsletter p{
+    margin-bottom:20px;
+}
+
+.subscribe{
+    display:flex;
+    max-width:500px;
+}
+
+.subscribe-box{
+    display:flex;
+    max-width:500px;
+    margin-bottom:15px;
+}
+
+.subscribe-box input{
+    flex:1;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:4px 0 0 4px;
+}
+
+.subscribe-box button{
+    padding:14px 24px;
+    border:none;
+    background: cream;
+    color:blue;
+    cursor:pointer;
+    border-radius:0 4px 4px 0;
+}
+hr{
+    border:none;
+    border-top:1px solid whitesmoke;
+    margin:30px;
+}
+
+.tabs{
+    display:flex;
+    gap: 20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.tab{
+    backgroud:none;
+    border:none;color:white;
+    font: size 24px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:10px 20px;
+}
+.tab.active{
+    background:white;
+    color:black;
+    border-radius:8px;
+}
+
+
+.tab-content{
+    display:none;
+    flex-wrap:wrap;
+    gap:15px;
+    margin: top 20px;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    
+}
+.active-content{
+    display:flex;
+    color:white;
+}
+.tab-content a:not(:last-child)::after{
+    content:"|";
+    margin: left 15px;
+    color:grey;
+}
+.tab-content a:hover{
+    color:white;
+}
+
+
+@media(max-width:768px){
+    .container{
+        flex-direction:column;
+    }
+
+    .left-section,
+    .right-section{
+        width:100%;
+    }
+
+    nav ul{
+        display:none;
+    }
+</style>
+<body>
+
+    <header>
+        <div class="logo">menu</div>
+        <nav>
+            <ul>
+                <li>Conditions</li>
+                <li>Drugs & Supplements</li>
+                <li>Well-Being</li>
+                <li>Symptom Checker</li>
+                <li>Find a Doctor</li>
+               
+
+            </ul>
+        </nav>
+ <div class="header-buttons">
+            <a href="#" class="search-btn">🔍</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="left-section">
+            <h2>Get access to everything menu offers</h2>
+
+            <div class="feature">
+                <span>📋</span>
+                <p>Personalized tools for managing your health</p>
+            </div>
+
+            <div class="feature">
+                <span>📩</span>
+                <p>Health and wellness updates delivered to your inbox</p>
+            </div>
+
+            <div class="feature">
+                <span>📚</span>
+                <p>Saved articles, conditions and medications</p>
+            </div>
+
+            <div class="feature">
+                <span>👨‍⚕️</span>
+                <p>Expert insights and patient stories</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="login-box">
+                <h2>Log In</h2>
+
+                <input type="email" placeholder="Email">
+
+                <div class="password-box">
+                    <input type="password" placeholder="Password">
+                    <button>SHOW</button>
+                </div>
+
+                <a href="#">Forgot Password?</a>
+
+                <div class="remember">
+                    <label>Remember me</label>
+                    <input type="checkbox">
+                </div>
+
+                <button class="login-btn">Login</button>
+            </div>
+        </div>
+
+    </main>
+
+     <footer class="footer">
+    <div class="footer-top">
+        <div class="newsletter">
+            <h2>Sign up for our free Good Health Newsletter</h2>
+            <p>Get wellness tips to help you live happier and healthier</p>
+
+            <div class="subscribe-box">
+                <input type="email" placeholder="Enter your email address">
+                <button>Subscribe</button>
+            </div>
+<small>
+                By clicking Subscribe, I agree to the Terms & Conditions and
+                Privacy Policy and understand that I may opt out at any time.
+            </small>
+        </div>
+        <div class="social">
+            <h3>Follow WebMD on Social Media</h3>
+
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="download">
+            <h3>Download WebMD App</h3>
+
+            <div class="app-buttons">
+                <button>App Store</button>
+                <button>Google Play</button>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="tabs">
+    <button class="tab active" onclick="showContent('policies', this)">Policies</button>  
+         <button class="tab active" onclick="showContent('about', this)">About</button> 
+             <button class="tab active" onclick="showContent('advertiser', this)">For Advertisers</button>  
+         </div>
+         <hr>
+         
+    <div id="policies" class="tab-content active-content">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">Advertising Policy</a>
+        <a href="#">Correction Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility Statement</a>
+    </div>
+
+      <div id="about" class="tab-content active-content">
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsletter</a>
+        <a href="#">webMD App</a>
+        <a href="#">Corporate</a>
+        <a href="#">Site Map</a>
+    </div>
+
+  <div id="advertiser" class="tab-content active-content">
+        <a href="#">Advertise with us</a>
+        <a href="#">Market Research</a>
+    </div>
+
+
+    <div class="copyright">
+        © 2005–2026 WebMD LLC. All rights reserved.
+    </div>
+    </footer>
+
+
+</body>
+</html>
