@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthPlus - WebMD Style Wellbeing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+    scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+    background:#0d6efd;
+    color:white;
+    padding:15px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ffdd57;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    padding:10px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffdd57;
+}
+
+/* DROPDOWN */
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:40px;
+    left:0;
+    background:white;
+    min-width:270px;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a{
+    color:#333;
+    padding:12px 15px;
+    display:block;
+    text-decoration:none;
+    border-bottom:1px solid #eee;
+}
+
+.dropdown-content a:hover{
+    background:#0d6efd;
+    color:white;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* HERO */
+.hero{
+    height:85vh;
+    background:linear-gradient(rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:21px;
+    margin-bottom:25px;
+    max-width:700px;
+}
+
+.hero-content button{
+    padding:14px 30px;
+    border:none;
+    background:#ffdd57;
+    color:#333;
+    font-size:18px;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero-content button:hover{
+    background:white;
+}
+
+/* SECTIONS */
+.section{
+    padding:70px 40px;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0d6efd;
+    font-size:38px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.topic-page{
+    background:white;
+    margin:30px auto;
+    width:90%;
+    border-radius:15px;
+    padding:40px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.topic-page h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.topic-page p{
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+
+
+
+
+
+.topic-page ul{
+    margin-left:20px;
+    line-height:1.8;
+}
+
+.topic-image{width:100%;max-height:300px;object-fit:cover;border-radius:12px;margin:15px 0 25px;}
+
+
+
+
+
+/* FOOTER */
+footer{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .topic-page{
+        padding:25px;
+    }
+}
+
+/* AGING WELL RONALDO CARD */
+.aging-card{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    background:#f8fbff;
+    padding:25px;
+    border-radius:15px;
+    margin-top:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.aging-card img{
+    width:260px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.aging-text{
+    flex:1;
+}
+
+.aging-text h3{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+@media(max-width:768px){
+    .aging-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .aging-card img{
+        width:100%;
+        max-width:320px;
+        height: 100%;
+    }
+}
+
+
+.topic-image{
+width:100%;
+max-height:280px;
+object-fit:cover;
+border-radius:12px;
+margin:15px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">Health<span>Plus</span></div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#">Wellbeing ▼</a>
+
+                    <div class="dropdown-content">
+                        <a href="#aging">Aging Well</a>
+                        <a href="#baby">Baby</a>
+                        <a href="#birth">Birth Control</a>
+                        <a href="#children">Children's Health</a>
+                        <a href="#diet">Diet & Weight Management</a>
+                        <a href="#fitness">Fitness & Exercise</a>
+                        <a href="#food">Food & Recipes</a>
+                        <a href="#balance">Health & Balance</a>
+                        <a href="#beauty">Healthy Beauty</a>
+                        <a href="#men">Men's Health</a>
+                        <a href="#parenting">Parenting</a>
+                        <a href="#pets">Pet Health</a>
+                        <a href="#pregnancy">Pregnancy</a>
+                    </div>
+                </li>
+
+                <li><a href="#topics">Topics</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Your Health Matters</h1>
+
+        <p>
+            Trusted wellness tips, healthy living advice,
+            nutrition information, and wellbeing guides inspired by WebMD.
+        </p>
+
+        <button onclick="location.href='#topics'">
+            Explore Wellbeing
+        </button>
+    </div>
+</section>
+
+<section class="section" id="topics">
+    <h2>Popular Wellbeing Topics</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Fitness & Exercise</h3>
+            <p>
+                Discover workouts, cardio plans,
+                and exercise routines for all ages.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Diet & Weight Management</h3>
+            <p>
+                Learn healthy eating habits and
+                balanced meal planning tips.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Healthy Beauty</h3>
+            <p>
+                Improve your skincare and haircare
+                using healthy lifestyle choices.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Pregnancy</h3>
+            <p>
+                Helpful guidance for expecting mothers
+                and growing families.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- WELLBEING PAGES -->
+
+<section class="topic-page" id="aging">
+    <h2>Aging Well</h2>
+
+    <div class="aging-card">
+<img src="C:\Users\Dr.SUSAN\Downloads\OIP (4).jpg">
+<div class="aging-text">
+            <h3>Healthy Aging Inspiration</h3>
+
+            <p>
+                Healthy aging includes staying active, eating nutritious meals,
+                sleeping well, and maintaining strong social relationships.
+            </p>
+
+            <p>
+                Athletes like Cristiano Ronaldo are often admired for maintaining
+                excellent physical fitness through disciplined nutrition,
+                intense training, recovery routines, and healthy habits.
+            </p>
+
+            <ul>
+                <li>Exercise regularly</li>
+                <li>Eat fruits and vegetables</li>
+                <li>Stay mentally active</li>
+                <li>Visit your doctor regularly</li>
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="topic-page" id="baby"><img class="topic-image" src="C:\Users\Dr.SUSAN\Downloads\5f508e339338a6b87141e2e73a7143d4.jpg" alt="Healthy baby care">
+<h2>Baby</h2>
+
+<p>Baby health focuses on growth, nutrition, sleep, hygiene, vaccinations, and helping babies develop safely during their first years of life. Babies need regular care and attention because early childhood strongly influences future health and development.</p>
+<p>Baby care includes keeping your baby clean, changing diapers regularly, ensuring safe sleep habits, giving routine vaccinations, and monitoring milestones such as smiling, crawling, sitting, and walking.</p>
+<h3>What Babies Should Eat</h3><ul><li>Breast milk or infant formula provides important nutrients during early months.</li><li>From around 6 months, soft foods such as mashed fruits and vegetables can be introduced.</li><li>Healthy foods include bananas, avocado, sweet potatoes, carrots, oatmeal, and soft proteins.</li><li>Provide enough fluids and avoid foods that may cause choking.</li></ul><h3>Baby Care Tips</h3><ul><li>Ensure enough sleep.</li><li>Keep vaccinations updated.</li><li>Practice gentle play and interaction.</li><li>Regular healthcare checkups.</li></ul></section>
+
+
+<section class="topic-page" id="birth">
+    <h2>Birth Control</h2>
+
+    <img class="topic-image"
+         src="birth-control-pills-condoms-contraceptive-IUD-1200x628-facebook.jpg"
+         alt="Birth control methods">
+
+    <p>
+        Learn about safe family planning methods,
+        contraceptives, and reproductive health options.
+    </p>
+</section>
+
+
+
+<section class="topic-page" id="children"><img class="topic-image" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"><p>Children need balanced nutrition, physical activity, emotional support and vaccinations. Healthy habits developed early often continue into adulthood.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Children's Health</h2>
+    <p>
+        Children's health includes proper nutrition,
+        vaccinations, exercise, and emotional wellbeing.
+    </p>
+</section>
+
+<section class="topic-page" id="diet"><img class="topic-image" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"><p>Healthy eating supports weight management. Eat balanced meals, drink water, and include fruits, vegetables and protein.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Diet & Weight Management</h2>
+    <p>
+        Healthy diets improve energy, fitness,
+        and reduce the risk of disease.
+    </p>
+</section>
+
+<section class="topic-page" id="fitness"><img class="topic-image" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"><p>Exercise improves strength, heart health and mental wellbeing. Walking, stretching and regular workouts are beneficial.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Fitness & Exercise</h2>
+    <p>
+        Regular exercise helps improve strength,
+        endurance, heart health, and mental wellness.
+    </p>
+</section>
+
+<section class="topic-page" id="food"><img class="topic-image" src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop"><p>Healthy recipes help create nutritious meals with healthy ingredients.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Food & Recipes</h2>
+    <p>
+        Explore healthy recipes, meal preparation tips,
+        and nutritious cooking ideas.
+    </p>
+</section>
+
+<section class="topic-page" id="balance"><img class="topic-image" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"><p>Good health requires balancing work, sleep, exercise and relaxation.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Health & Balance</h2>
+    <p>
+        Balancing work, sleep, exercise, and relaxation
+        improves overall wellbeing and reduces stress.
+    </p>
+</section>
+
+<section class="topic-page" id="beauty"><img class="topic-image" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop"><p>Healthy beauty includes skincare, hydration and healthy lifestyle choices.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Healthy Beauty</h2>
+    <p>
+        Healthy beauty focuses on skincare, hydration,
+        healthy habits, and confidence.
+    </p>
+</section>
+
+<section class="topic-page" id="men"><img class="topic-image" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"><p>Men's health includes heart care, fitness, mental wellbeing and regular health checks.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Men's Health</h2>
+    <p>
+        Men's health includes heart health,
+        fitness, mental health, and preventive care.
+    </p>
+</section>
+
+<section class="topic-page" id="parenting"><img class="topic-image" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"><p>Parenting focuses on communication, emotional support and child development.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Parenting</h2>
+    <p>
+        Parenting resources help families manage
+        communication, discipline, and child development.
+    </p>
+</section>
+
+<section class="topic-page" id="pets"><img class="topic-image" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop"><p>Pets require healthy food, exercise and regular veterinary visits.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Pet Health</h2>
+    <p>
+        Learn how to care for your pets through
+        proper feeding, exercise, and regular checkups.
+    </p>
+</section>
+
+<section class="topic-page" id="pregnancy"><img class="topic-image" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop"><p>Pregnancy care includes nutrition, prenatal checkups and preparation for childbirth.</p><ul><li>Healthy habits</li><li>Regular checkups</li><li>Nutrition guidance</li><li>Daily wellness tips</li></ul>
+    <h2>Pregnancy</h2>
+    <p>
+        Pregnancy care includes healthy nutrition,
+        prenatal visits, and preparing for childbirth.
+    </p>
+</section>
+
+<footer id="contact">
+    <p>© 2026 HealthPlus. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
