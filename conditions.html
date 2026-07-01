@@ -53,22 +53,124 @@ logo-icon {
     color: #2a7de1;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+ .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:#0a2f87;
+            color:white;
+            padding:15px 30px;
+            gap:16px;
+            flex-wrap:wrap;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.2s;
-}
+        .logo {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            color:white;
+            text-decoration:none;
+            font-weight:700;
+        }
 
-nav a:hover {
-    color: #2a7de1;
-}
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 600;
+        }
+
+        .nav-controls{
+            display:flex;
+            align-items:center;
+            gap:24px;
+            flex-wrap:wrap;
+        }
+
+        .menu{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .nav-right{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .logo img{
+            height:40px;
+            display:block;
+        }
+
+        .search-btn{
+            background:transparent;
+            border:none;
+            color:inherit;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        .login-link{
+            color:inherit;
+            text-decoration:none;
+            font-weight:700;
+        }
+
+        .subscribe-btn{
+            background:#ff6b6b;
+            color:white;
+            border:none;
+            padding:8px 14px;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:700;
+        }
+
+        .dropdown{
+            position: relative;
+        }
+
+        .dropbtn{
+            background: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .dropdown-content{
+            display:none;
+            position:absolute;
+            top:calc(100% + 6px);
+            left:0;
+            background:white;
+            min-width:200px;
+            box-shadow:0 8px 20px rgba(0,0,0,.15);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-content{
+            display:block;
+        }
+
+        .dropdown-content a{
+            display:block;
+            padding: 10px 14px;
+            color: #111;
+            text-decoration: none;
+            white-space: nowrap;
+            margin-left: 0;
+        }
+
+        .dropdown-content a:hover{
+            background: #f3f4fb;
+        }
 
 /* --- Newsletter Section --- */
 .newsletter-section {
