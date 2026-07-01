@@ -5,13 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Group 2 Care For You</title>
   
- 
-  
-  <!-- ==========  for the icons BOOTSTRAP ICONS ========== -->
+  <!-- ========== BOOTSTRAP ICONS (Still needed for icons) ========== -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
- 
+  
   <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7ff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     /* ----- CUSTOM COLOR PALETTE ----- */
     :root {
       --primary-blue: #0066b3;
@@ -24,17 +50,19 @@
       --gradient-hero: linear-gradient(135deg, #0066b3 0%, #00b4d8 50%, #48cae4 100%);
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f7ff;
-    }
-
     /* ----- HEADER with Gradient ----- */
     .site-header {
       background: linear-gradient(90deg, #ffffff 60%, #e6f3ff 100%);
       border-bottom: 3px solid var(--primary-blue);
       padding: 12px 0;
       box-shadow: 0 2px 20px rgba(0, 102, 179, 0.15);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -50,61 +78,114 @@
       margin-right: 10px;
     }
 
-    /* ----- DROPDOWN CUSTOMIZATION ----- */
-    .navbar-nav .nav-link {
-      font-weight: 600;
-      color: #333 !important;
-      padding: 10px 18px !important;
+    /* ----- NAVIGATION (Mobile-Friendly) ----- */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 2px solid var(--primary-blue);
       border-radius: 8px;
-      transition: all 0.3s ease;
+      padding: 8px 12px;
+      font-size: 24px;
+      color: var(--primary-blue);
+      cursor: pointer;
     }
 
-    .navbar-nav .nav-link:hover {
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      font-weight: 600;
+      color: #333;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .nav-menu a:hover {
       background: var(--primary-light);
       color: var(--primary-blue) !important;
       transform: translateY(-2px);
     }
 
-    .dropdown-menu {
-      border: none;
+    /* ----- DROPDOWN (Pure CSS) ----- */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: white;
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      background: white;
       padding: 8px;
-      min-width: 220px;
+      z-index: 1000;
     }
 
-    .dropdown-item {
-      border-radius: 8px;
+    .dropdown-content a {
+      display: block;
       padding: 10px 16px;
+      border-radius: 8px;
       font-weight: 500;
       transition: all 0.2s ease;
+      color: #333;
     }
 
-    .dropdown-item:hover {
+    .dropdown-content a:hover {
       background: var(--primary-light);
       color: var(--primary-blue);
       transform: translateX(6px);
     }
 
-    .dropdown-item i {
+    .dropdown-content a i {
       margin-right: 10px;
       width: 20px;
       color: var(--primary-blue);
     }
 
     .dropdown-divider {
-      border-color: #e0e0e0;
+      height: 1px;
+      background: #e0e0e0;
       margin: 6px 0;
     }
 
-    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ----- CTA BUTTON ----- */
+    .btn-emergency {
+      background: var(--accent-coral);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-emergency:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    /* ----- HERO SECTION ----- */
     .hero {
       background: var(--gradient-hero);
       color: white;
       padding: 80px 0;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .hero::before {
@@ -131,91 +212,103 @@
       opacity: 0.95;
       position: relative;
       z-index: 1;
+      margin-bottom: 20px;
     }
 
-    .search-box .form-control {
-      border-radius: 50px 0 0 50px;
-      border: none;
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ----- SEARCH BOX ----- */
+    .search-box {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      flex: 1;
       padding: 15px 25px;
+      border: none;
+      border-radius: 50px 0 0 50px;
       font-size: 16px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      outline: none;
     }
 
-    .search-box .btn {
-      border-radius: 0 50px 50px 0;
+    .search-box button {
       padding: 15px 30px;
       background: var(--primary-dark);
       color: white;
-      font-weight: 600;
       border: none;
+      border-radius: 0 50px 50px 0;
+      font-weight: 600;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .search-box .btn:hover {
+    .search-box button:hover {
       background: #002b5e;
       transform: scale(1.02);
     }
 
-    /* ----- FEATURED CARDS (Bootstrap Card Component) ----- */
-    .featured-card {
-      border: none;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      height: 100%;
+    /* ----- BADGES / TAGS ----- */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
     }
 
-    .featured-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0, 102, 179, 0.15);
-    }
-
-    .featured-card .card-img-top {
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .featured-card .card-body {
-      padding: 25px;
-      background: white;
-    }
-
-    .featured-card .card-title {
-      color: var(--primary-blue);
-      font-weight: 700;
-      font-size: 22px;
-    }
-
-    .featured-card .card-text {
-      color: #555;
-      line-height: 1.7;
-    }
-
-    .featured-card .btn-outline-primary {
+    .tag {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 8px 16px;
       border-radius: 50px;
-      padding: 8px 24px;
-      font-weight: 600;
-      border-color: var(--primary-blue);
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag i {
+      font-size: 16px;
+    }
+
+    /* ----- SECTION TITLES ----- */
+    .section-title {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 700;
       color: var(--primary-blue);
-      transition: all 0.3s ease;
+      margin-bottom: 40px;
     }
 
-    .featured-card .btn-outline-primary:hover {
-      background: var(--primary-blue);
-      color: white;
-      transform: translateX(6px);
+    .section-title i {
+      margin-right: 10px;
     }
 
-    /* ----- COLORFUL CONDITION CARDS (Bootstrap Grid) ----- */
+    /* ----- CONDITION CARDS (Grid) ----- */
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
     .condition-card {
+      background: white;
       border: none;
       border-radius: 16px;
       padding: 30px 20px;
       text-align: center;
       transition: all 0.4s ease;
-      height: 100%;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .condition-card:hover {
@@ -235,6 +328,17 @@
       color: white;
     }
 
+    .condition-card h5 {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .condition-card p {
+      font-size: 14px;
+      color: #6c757d;
+      margin: 0;
+    }
+
     /* Colorful variations */
     .bg-gradient-heart { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
     .bg-gradient-brain { background: linear-gradient(135deg, #6f42c1, #a855f7); }
@@ -242,6 +346,75 @@
     .bg-gradient-bones { background: linear-gradient(135deg, #f59e0b, #d97706); }
     .bg-gradient-stomach { background: linear-gradient(135deg, #ec4899, #db2777); }
     .bg-gradient-eye { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+    .bg-gradient-blood { background: linear-gradient(135deg, #f472b6, #db2777); }
+    .bg-gradient-mental { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+
+    /* ----- FEATURED CARDS (Grid) ----- */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .featured-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 102, 179, 0.15);
+    }
+
+    .featured-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .featured-card .card-body {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-card .card-title {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .featured-card .card-text {
+      color: #555;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .featured-card .btn-outline {
+      display: inline-block;
+      padding: 8px 24px;
+      border: 2px solid var(--primary-blue);
+      border-radius: 50px;
+      color: var(--primary-blue);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+      margin-top: 15px;
+    }
+
+    .featured-card .btn-outline:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateX(6px);
+    }
 
     /* ----- TESTIMONIAL SECTION ----- */
     .testimonial-section {
@@ -255,6 +428,14 @@
       padding: 40px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
       border-left: 6px solid var(--accent-coral);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
     }
 
     .testimonial-card img {
@@ -265,16 +446,32 @@
       border: 4px solid var(--primary-blue);
     }
 
-    .testimonial-card .blockquote {
+    .testimonial-card .testimonial-info {
+      margin-left: 15px;
+    }
+
+    .testimonial-card .testimonial-info h5 {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 0;
+    }
+
+    .testimonial-card .testimonial-info small {
+      color: #6c757d;
+    }
+
+    .testimonial-card blockquote {
       font-size: 20px;
       font-style: italic;
       color: #333;
+      margin: 0;
     }
 
     .testimonial-card .blockquote-footer {
       color: var(--primary-blue);
       font-weight: 700;
       font-size: 18px;
+      margin-top: 10px;
     }
 
     /* ----- FOOTER with Gradient ----- */
@@ -282,6 +479,12 @@
       background: linear-gradient(135deg, #004080, #002b5e);
       color: white;
       padding: 40px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+      gap: 24px;
     }
 
     footer a {
@@ -295,10 +498,24 @@
       text-decoration: underline;
     }
 
-    .footer-social .btn {
-      border-radius: 50%;
+    footer h5, footer h6 {
+      margin-bottom: 12px;
+    }
+
+    footer ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .footer-social .social-btn {
       width: 45px;
       height: 45px;
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -308,280 +525,381 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .footer-social .btn:hover {
+    .footer-social .social-btn:hover {
       background: white;
       color: var(--primary-blue);
       transform: translateY(-4px);
     }
 
-    /* ----- RESPONSIVE TWEAKS ----- */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero { padding: 50px 0; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
     }
+
+    .footer-bottom a {
+      margin: 0 10px;
+    }
+
+    /* ----- RESPONSIVE DESIGN ----- */
+    @media (max-width: 992px) {
+      .condition-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile Navigation */
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 5px;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li {
+        width: 100%;
+      }
+
+      .nav-menu a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding-left: 20px;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+
+      /* Hero */
+      .hero h1 {
+        font-size: 32px;
+      }
+      
+      .hero {
+        padding: 50px 0;
+      }
+
+      /* Grids */
+      .condition-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      /* Section Title */
+      .section-title {
+        font-size: 32px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .search-box input {
+        border-radius: 50px;
+        margin-bottom: 10px;
+      }
+
+      .search-box button {
+        border-radius: 50px;
+      }
+
+      .testimonial-card .testimonial-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .testimonial-card .testimonial-info {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .condition-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      
+      .condition-card {
+        padding: 20px 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+    }
+
+    /* Utility Classes */
+    .bg-white { background: white; }
+    .py-5 { padding: 60px 0; }
+    .text-center { text-align: center; }
+    .mt-3 { margin-top: 15px; }
+    .mt-4 { margin-top: 20px; }
+    .mb-3 { margin-bottom: 15px; }
+    .mb-5 { margin-bottom: 40px; }
+    .me-2 { margin-right: 8px; }
+    .ms-2 { margin-left: 8px; }
+    .ms-3 { margin-left: 15px; }
+    .text-danger { color: #dc3545; }
+    .text-success { color: #28a745; }
+    .text-primary { color: var(--primary-blue); }
+    .text-warning { color: #ffc107; }
+    .text-secondary { color: #6c757d; }
+    .fw-bold { font-weight: 700; }
+    .small { font-size: 14px; }
+    .d-flex { display: flex; }
+    .flex-column { flex-direction: column; }
+    .gap-2 { gap: 8px; }
+    .gap-4 { gap: 24px; }
+    .align-items-center { align-items: center; }
+    .justify-content-center { justify-content: center; }
+    .flex-wrap { flex-wrap: wrap; }
   </style>
 </head>
 
 <body>
 
-<!-- ========== HEADER WITH BOOTSTRAP NAVBAR & DROPDOWNS ========== -->
+<!-- ========== HEADER (Pure HTML/CSS - No Bootstrap) ========== -->
 <header class="site-header">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid px-0">
-        
-        <!-- Logo -->
-        <a class="navbar-brand logo" href="#">
-          <i class="bi bi-heart-pulse-fill"></i>
-          group2 care for you
+  <div class="container header-container">
+    <!-- Logo -->
+    <a class="logo" href="#">
+      <i class="bi bi-heart-pulse-fill"></i>
+      group2 care for you
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Navigation -->
+    <ul class="nav-menu" id="navMenu">
+      <!-- Dropdown 1: Conditions -->
+      <li class="dropdown">
+        <a href="#"><i class="bi bi-clipboard2-pulse"></i> Conditions ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#"><i class="bi bi-heart"></i> Heart Disease</a></li>
+          <li><a href="#"><i class="bi bi-brain"></i> Neurological</a></li>
+          <li><a href="#"><i class="bi bi-lungs"></i> Respiratory</a></li>
+          <li><a href="#"><i class="bi bi-bone"></i> Orthopedic</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="#"><i class="bi bi-list-ul"></i> All Conditions</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown 2: Drugs -->
+      <li class="dropdown">
+        <a href="#"><i class="bi bi-capsule"></i> Drugs ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#"><i class="bi bi-prescription"></i> Prescription</a></li>
+          <li><a href="#"><i class="bi bi-bandaid"></i> OTC</a></li>
+          <li><a href="#"><i class="bi bi-droplet"></i> Vaccines</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="#"><i class="bi bi-search"></i> Drug Finder</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown 3: Wellness -->
+      <li class="dropdown">
+        <a href="#"><i class="bi bi-flower1"></i> Wellness ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#"><i class="bi bi-person-walking"></i> Fitness</a></li>
+          <li><a href="#"><i class="bi bi-apple"></i> Nutrition</a></li>
+          <li><a href="#"><i class="bi bi-moon-stars"></i> Sleep</a></li>
+          <li><a href="#"><i class="bi bi-brain"></i> Mental Health</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown 4: Find a Doctor -->
+      <li class="dropdown">
+        <a href="#"><i class="bi bi-person-badge"></i> Find a Doctor ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#"><i class="bi bi-geo-alt"></i> Near Me</a></li>
+          <li><a href="#"><i class="bi bi-video"></i> Telehealth</a></li>
+          <li><a href="#"><i class="bi bi-star"></i> Top Rated</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="#"><i class="bi bi-calendar-check"></i> Book Appointment</a></li>
+        </ul>
+      </li>
+
+      <!-- Emergency Button -->
+      <li>
+        <a href="#" class="btn-emergency">
+          <i class="bi bi-telephone"></i> Emergency
         </a>
-
-        <!-- Mobile Toggle Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links with DROPDOWNS -->
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center">
-            
-            <!-- Dropdown 1: Conditions -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                <i class="bi bi-clipboard2-pulse"></i> Conditions
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-heart"></i> Heart Disease</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-brain"></i> Neurological</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-lungs"></i> Respiratory</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-bone"></i> Orthopedic</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-list-ul"></i> All Conditions</a></li>
-              </ul>
-            </li>
-
-            <!-- Dropdown 2: Drugs -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                <i class="bi bi-capsule"></i> Drugs
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-prescription"></i> Prescription</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-bandaid"></i> OTC</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-droplet"></i> Vaccines</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-search"></i> Drug Finder</a></li>
-              </ul>
-            </li>
-
-            <!-- Dropdown 3: Wellness -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                <i class="bi bi-flower1"></i> Wellness
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person-walking"></i> Fitness</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-apple"></i> Nutrition</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-moon-stars"></i> Sleep</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-brain"></i> Mental Health</a></li>
-              </ul>
-            </li>
-
-            <!-- Dropdown 4: Find a Doctor -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                <i class="bi bi-person-badge"></i> Find a Doctor
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-geo-alt"></i> Near Me</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-video"></i> Telehealth</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-star"></i> Top Rated</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"></i> Book Appointment</a></li>
-              </ul>
-            </li>
-
-            <!-- CTA Button (Bootstrap Button) -->
-            <li class="nav-item">
-              <a href="#" class="btn btn-primary rounded-pill px-4 ms-2" style="background: var(--accent-coral); border: none;">
-                <i class="bi bi-telephone"></i> Emergency
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </li>
+    </ul>
   </div>
 </header>
 
 <!-- ========== HERO SECTION ========== -->
 <section class="hero">
-  <div class="container text-center position-relative">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <h1 class="display-3 fw-bold">Health information you can understand</h1>
-        <p class="lead mb-4">Search symptoms, conditions, medications, and wellness topics.</p>
-        
-        <!-- Search Box using Bootstrap Form -->
-        <div class="search-box">
-          <form class="d-flex justify-content-center">
-            <div class="input-group" style="max-width: 600px;">
-              <input type="text" class="form-control" placeholder="Search health topics..." />
-              <button class="btn" type="submit">
-                <i class="bi bi-search me-2"></i>Search
-              </button>
-            </div>
-          </form>
-        </div>
-        
-        <!-- Quick Tags (Bootstrap Badges) -->
-        <div class="mt-4 d-flex flex-wrap justify-content-center gap-2">
-          <span class="badge bg-light text-dark rounded-pill px-3 py-2">
-            <i class="bi bi-heart-pulse text-danger"></i> Heart
-          </span>
-          <span class="badge bg-light text-dark rounded-pill px-3 py-2">
-            <i class="bi bi-activity text-primary"></i> Diabetes
-          </span>
-          <span class="badge bg-light text-dark rounded-pill px-3 py-2">
-            <i class="bi bi-brain text-purple"></i> Anxiety
-          </span>
-          <span class="badge bg-light text-dark rounded-pill px-3 py-2">
-            <i class="bi bi-lungs text-success"></i> COVID-19
-          </span>
-          <span class="badge bg-light text-dark rounded-pill px-3 py-2">
-            <i class="bi bi-heart text-danger"></i> Hypertension
-          </span>
-        </div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>Health information you can understand</h1>
+      <p>Search symptoms, conditions, medications, and wellness topics.</p>
+      
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" placeholder="Search health topics..." />
+        <button type="submit">
+          <i class="bi bi-search"></i> Search
+        </button>
+      </div>
+      
+      <!-- Quick Tags -->
+      <div class="tags">
+        <span class="tag"><i class="bi bi-heart-pulse text-danger"></i> Heart</span>
+        <span class="tag"><i class="bi bi-activity text-primary"></i> Diabetes</span>
+        <span class="tag"><i class="bi bi-brain" style="color: #6f42c1;"></i> Anxiety</span>
+        <span class="tag"><i class="bi bi-lungs text-success"></i> COVID-19</span>
+        <span class="tag"><i class="bi bi-heart text-danger"></i> Hypertension</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== COLORFUL CONDITION CARDS (Bootstrap Grid) ========== -->
+<!-- ========== CONDITION CARDS ========== -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-5 display-5 fw-bold" style="color: var(--primary-blue);">
-      <i class="bi bi-grid-3x3-gap-fill me-2"></i> Browse by Category
+    <h2 class="section-title">
+      <i class="bi bi-grid-3x3-gap-fill"></i> Browse by Category
     </h2>
-    <div class="row g-4">
+    <div class="condition-grid">
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-heart"><i class="bi bi-heart-fill"></i></div>
-          <h5 class="fw-bold">Heart Health</h5>
-          <p class="small text-secondary">Palpitations, hypertension, cholesterol</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-heart"><i class="bi bi-heart-fill"></i></div>
+        <h5>Heart Health</h5>
+        <p>Palpitations, hypertension, cholesterol</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-brain"><i class="bi bi-brain"></i></div>
-          <h5 class="fw-bold">Brain & Nerves</h5>
-          <p class="small text-secondary">Migraine, stroke, epilepsy</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-brain"><i class="bi bi-brain"></i></div>
+        <h5>Brain & Nerves</h5>
+        <p>Migraine, stroke, epilepsy</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-lungs"><i class="bi bi-lungs-fill"></i></div>
-          <h5 class="fw-bold">Respiratory</h5>
-          <p class="small text-secondary">Asthma, COPD, pneumonia</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-lungs"><i class="bi bi-lungs-fill"></i></div>
+        <h5>Respiratory</h5>
+        <p>Asthma, COPD, pneumonia</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-bones"><i class="bi bi-bone"></i></div>
-          <h5 class="fw-bold">Bones & Joints</h5>
-          <p class="small text-secondary">Arthritis, osteoporosis, fractures</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-bones"><i class="bi bi-bone"></i></div>
+        <h5>Bones & Joints</h5>
+        <p>Arthritis, osteoporosis, fractures</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-stomach"><i class="bi bi-stomach"></i></div>
-          <h5 class="fw-bold">Digestive</h5>
-          <p class="small text-secondary">GERD, IBS, ulcers</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-stomach"><i class="bi bi-stomach"></i></div>
+        <h5>Digestive</h5>
+        <p>GERD, IBS, ulcers</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle bg-gradient-eye"><i class="bi bi-eye"></i></div>
-          <h5 class="fw-bold">Vision</h5>
-          <p class="small text-secondary">Cataracts, glaucoma, dry eye</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-eye"><i class="bi bi-eye"></i></div>
+        <h5>Vision</h5>
+        <p>Cataracts, glaucoma, dry eye</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle" style="background: linear-gradient(135deg, #f472b6, #db2777);"><i class="bi bi-droplet"></i></div>
-          <h5 class="fw-bold">Blood & Immunity</h5>
-          <p class="small text-secondary">Anemia, HIV, allergies</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-blood"><i class="bi bi-droplet"></i></div>
+        <h5>Blood & Immunity</h5>
+        <p>Anemia, HIV, allergies</p>
       </div>
       
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="condition-card bg-white">
-          <div class="icon-circle" style="background: linear-gradient(135deg, #a78bfa, #7c3aed);"><i class="bi bi-hypnotize"></i></div>
-          <h5 class="fw-bold">Mental Health</h5>
-          <p class="small text-secondary">Depression, ADHD, dementia</p>
-        </div>
+      <div class="condition-card">
+        <div class="icon-circle bg-gradient-mental"><i class="bi bi-hypnotize"></i></div>
+        <h5>Mental Health</h5>
+        <p>Depression, ADHD, dementia</p>
       </div>
       
     </div>
   </div>
 </section>
 
-<!-- ========== FEATURED HEALTH TOPICS (Bootstrap Cards) ========== -->
-<section class="py-5" style="background: white;">
+<!-- ========== FEATURED HEALTH TOPICS ========== -->
+<section class="py-5 bg-white">
   <div class="container">
-    <h2 class="text-center mb-5 display-5 fw-bold" style="color: var(--primary-blue);">
-      <i class="bi bi-stars me-2"></i> Featured Health Topics
+    <h2 class="section-title">
+      <i class="bi bi-stars"></i> Featured Health Topics
     </h2>
     
-    <div class="row g-4">
+    <div class="featured-grid">
       
       <!-- Card 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card featured-card h-100">
-          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop" class="card-img-top" alt="Yoga">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title"><i class="bi bi-flower2 me-2 text-success"></i>Mindfulness & Mental Health</h5>
-            <p class="card-text flex-grow-1">Discover techniques to reduce stress, improve sleep, and boost your overall well-being.</p>
-            <a href="#" class="btn btn-outline-primary align-self-start rounded-pill">
-              Learn More <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop" alt="Yoga">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-flower2 text-success"></i> Mindfulness & Mental Health</h5>
+          <p class="card-text">Discover techniques to reduce stress, improve sleep, and boost your overall well-being.</p>
+          <a href="#" class="btn-outline">Learn More <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       
       <!-- Card 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card featured-card h-100">
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" class="card-img-top" alt="Nutrition">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title"><i class="bi bi-apple me-2 text-danger"></i>Nutrition for Every Body</h5>
-            <p class="card-text flex-grow-1">Learn about balanced diets, superfoods, and how to build healthy eating habits that last.</p>
-            <a href="#" class="btn btn-outline-primary align-self-start rounded-pill">
-              Learn More <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="Nutrition">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-apple text-danger"></i> Nutrition for Every Body</h5>
+          <p class="card-text">Learn about balanced diets, superfoods, and how to build healthy eating habits that last.</p>
+          <a href="#" class="btn-outline">Learn More <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       
       <!-- Card 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card featured-card h-100">
-          <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=600&h=400&fit=crop" class="card-img-top" alt="Fitness">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title"><i class="bi bi-person-walking me-2 text-primary"></i>Fitness & Exercise</h5>
-            <p class="card-text flex-grow-1">Find the right workout routines, injury prevention tips, and strategies to stay active.</p>
-            <a href="#" class="btn btn-outline-primary align-self-start rounded-pill">
-              Learn More <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=600&h=400&fit=crop" alt="Fitness">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-person-walking text-primary"></i> Fitness & Exercise</h5>
+          <p class="card-text">Find the right workout routines, injury prevention tips, and strategies to stay active.</p>
+          <a href="#" class="btn-outline">Learn More <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       
@@ -589,52 +907,48 @@
   </div>
 </section>
 
-<!-- ========== TESTIMONIAL (Bootstrap Card) ========== -->
+<!-- ========== TESTIMONIAL ========== -->
 <section class="testimonial-section">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="testimonial-card">
-          <div class="d-flex align-items-center mb-3">
-            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=160&h=160&fit=crop&crop=face" alt="Dr. Duncan" />
-            <div class="ms-3">
-              <h5 class="mb-0 fw-bold text-primary">Dr. Duncan</h5>
-              <small class="text-secondary"><i class="bi bi-star-fill text-warning me-1"></i>Chief Medical Officer</small>
-            </div>
-          </div>
-          <blockquote class="blockquote">
-            <p class="mb-3">"Group2 Care has been my go-to resource for understanding complex medical topics. The information is clear, reliable, and easy to digest."</p>
-            <footer class="blockquote-footer mt-2">
-              <i class="bi bi-heart-fill text-danger me-2"></i>Proud member of Group 2
-            </footer>
-          </blockquote>
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=160&h=160&fit=crop&crop=face" alt="Dr. Duncan" />
+        <div class="testimonial-info">
+          <h5>Dr. Duncan</h5>
+          <small><i class="bi bi-star-fill text-warning"></i> Chief Medical Officer</small>
         </div>
       </div>
+      <blockquote>
+        <p>"Group2 Care has been my go-to resource for understanding complex medical topics. The information is clear, reliable, and easy to digest."</p>
+        <div class="blockquote-footer">
+          <i class="bi bi-heart-fill text-danger"></i> Proud member of Group 2
+        </div>
+      </blockquote>
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER with Bootstrap Grid it was hard to get the grid boot no way ========== -->
+<!-- ========== FOOTER ========== -->
 <footer>
   <div class="container">
-    <div class="row g-4">
+    <div class="footer-grid">
       
       <!-- Column 1: About -->
-      <div class="col-md-4">
-        <h5 class="fw-bold"><i class="bi bi-heart-pulse-fill me-2"></i>Group2 Care</h5>
-        <p class="text-light-emphasis">Your trusted source for educational health information. Always consult your doctor for medical advice.</p>
-        <div class="footer-social mt-3">
-          <a href="#" class="btn"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="btn"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="btn"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="btn"><i class="bi bi-youtube"></i></a>
+      <div>
+        <h5><i class="bi bi-heart-pulse-fill"></i> Group2 Care</h5>
+        <p style="color: rgba(255,255,255,0.7);">Your trusted source for educational health information. Always consult your doctor for medical advice.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
       
       <!-- Column 2: Quick Links -->
-      <div class="col-md-2">
-        <h6 class="fw-bold">Quick Links</h6>
-        <ul class="list-unstyled">
+      <div>
+        <h6>Quick Links</h6>
+        <ul>
           <li><a href="#">About Us</a></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Careers</a></li>
@@ -642,46 +956,82 @@
         </ul>
       </div>
       
-      <!-- Column 3: we are supposed to link this to all others work Resources and put drop downs  -->
-      <div class="col-md-3">
-        <h6 class="fw-bold">Resources</h6>
-        <ul class="list-unstyled">
-          <li><a href="#">home</a></li>
-          <li><a href="#">conditions </a></li>
-          <li><a href="#">de</a></li>
+      <!-- Column 3: Resources -->
+      <div>
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Conditions</a></li>
+          <li><a href="#">Drugs & Medications</a></li>
           <li><a href="#">Symptom Checker</a></li>
-          <li><a href="#">Symptom Checker</a></li>
-          <li><a href="#">Symptom Checker</a></li>
+          <li><a href="#">Wellness Tips</a></li>
         </ul>
       </div>
       
       <!-- Column 4: Contact -->
-      <div class="col-md-3">
-        <h6 class="fw-bold">Get in Touch</h6>
-        <ul class="list-unstyled">
-          <li><i class="bi bi-envelope me-2"></i><a href="mailto:info@group2care.com">info@group2care.com</a></li>
-          <li><i class="bi bi-telephone me-2"></i><a href="tel:+256750049022">+256 750049022</a></li>
-          <li><i class="bi bi-clock me-2"></i>24/7 Health Support</li>
+      <div>
+        <h6>Get in Touch</h6>
+        <ul>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:info@group2care.com">info@group2care.com</a></li>
+          <li><i class="bi bi-telephone"></i> <a href="tel:+256750049022">+256 750049022</a></li>
+          <li><i class="bi bi-clock"></i> 24/7 Health Support</li>
         </ul>
       </div>
       
     </div>
     
     <!-- Bottom Bar -->
-    <hr class="border-light border-opacity-25 my-4" />
-    <div class="text-center text-light-emphasis small">
-      <i class="bi bi-hearts me-2 text-danger"></i>
-      &copy; 2026 Group2 Care For You. .
-      <span class="d-block d-sm-inline mt-2 mt-sm-0">
-        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Privacy Policy</a>
-        <a href="#" class="text-light-emphasis text-decoration-none ms-3">Terms of Use but as of group two terms</a>
-      </span>
+    <div class="footer-bottom">
+      <i class="bi bi-hearts text-danger"></i>
+      &copy; 2026 Group2 Care For You. All Rights Reserved.
+      <div style="margin-top: 8px;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- ========== BOOTSTRAP JAVASCRIPT (for dropdowns to work) this is what we used sir  ========== -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ========== JAVASCRIPT (Mobile Menu Toggle) ========== -->
+<script>
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  navToggle.addEventListener('click', function() {
+    navMenu.classList.toggle('active');
+    // Toggle icon between menu and X
+    const icon = this.querySelector('i');
+    if (navMenu.classList.contains('active')) {
+      icon.className = 'bi bi-x-lg';
+    } else {
+      icon.className = 'bi bi-list';
+    }
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.dropdown > a').forEach(function(dropdownLink) {
+    dropdownLink.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = this.parentElement;
+        parent.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      const header = document.querySelector('.site-header');
+      if (!header.contains(e.target)) {
+        navMenu.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.className = 'bi bi-list';
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
